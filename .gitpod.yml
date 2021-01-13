@@ -2,10 +2,8 @@ ports:
   - port: 8080
     onOpen: open-preview
 tasks:
-  - command: code complete/src/main/java/hello/HelloController.java
-  - before: cd complete
-    init: ./gradlew clean build
-    command: ./gradlew bootRun
+  - init: cd complete && mvn package
+    command: java -jar target/*.jar
 github:
   prebuilds:
       pullRequestsFromForks: true
